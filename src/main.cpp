@@ -2,13 +2,15 @@
 #include <istream>
 #include <iostream>
 #include <string>
+#include <LineReader.h>
 
 int main(int argc, char **argv) {
   std::ifstream header_file ("./var/httpheaders.txt", std::istream::in);
 
-  char line[512];
+  LineReader lr (std::move(header_file));
+  std::string line;
 
-  while (header_file.getline(line, 512))
+  while (lr.get_actual_line(line))
   {
     std::cout << line << std::endl;
   }

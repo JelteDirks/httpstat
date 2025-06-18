@@ -5,7 +5,9 @@ project(RandomHttp
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
-add_executable(randomhttp src/main.cpp)
+add_executable(randomhttp 
+  src/main.cpp
+  src/LineReader.cpp)
 
 target_include_directories(randomhttp
   PUBLIC "./include")
