@@ -6,11 +6,9 @@
 
 int main(int argc, char **argv) {
   std::ifstream header_file ("./var/httpheaders.txt", std::istream::in);
-
-  LineReader lr (std::move(header_file));
   std::string line;
 
-  while (lr.get_actual_line(line))
+  while (std::getline(header_file, line))
   {
     std::cout << line << std::endl;
   }
